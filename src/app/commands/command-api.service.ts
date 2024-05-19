@@ -7,15 +7,18 @@ import { Command } from './command.model';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 
-
-
 @Injectable()
 export class CommandsApiService{
+    http: any;
     // ...
-
-    private static _handleError(err: HttpErrorResponse | any) {
-        return throwError(err.message || 'Error: Unable to complete request.');
+    getCommands(): Observable<Command[]> {
+        return this.http
+            .get(`${API_URL}/commands`)
+            .pipe(
+                catchError(CommandsApiService._handleError)
+            );
     }
-
-    // ...
+    static _handleError(_handleError: any): any {
+        throw new Error('Method not implemented.');
+    }
 }

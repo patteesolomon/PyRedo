@@ -1,1 +1,1 @@
-export const API_URL = 'postgresql://30507:tX5[pI4:fN3*jI4&@30507/THEDB/'
+export const API_URL = 'postgresql://30507:tX5[pI4:fN3*jI4&@30507/THEDB'
